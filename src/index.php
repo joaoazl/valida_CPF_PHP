@@ -86,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         return true;
     }
-    var_dump($erro);
     $valid = validCpf($arrayCpf, $erro);
 }
 
@@ -115,14 +114,18 @@ function clearPost($value){
         <main>
             <form class="form" method="POST">
                 <label>CPF</label>
-                <input type="text" name="cpf" autocomplete="off" placeholder="Digite seu Cpf..." />
-                <span class="erro"> <?php echo $erro ?? '' ?> </span>
+                <input type="text" name="cpf" id="cpf" autocomplete="off" placeholder="Digite seu Cpf..." />
+                <span class="erro"> <?php echo $erro ?? $cpfValido ?> </span>
                 <div class="btn">
                     <button type="submit">Validar</button>
                 </div>
             </form>
         </main>
     </div>
+
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/mask.js"></script>
+    <!-- <script src="./js/mascara.js"></script> -->
 </body>
 
 </html>
